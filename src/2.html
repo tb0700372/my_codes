@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <meta name="referrer" content="always">
+    <base href="https://csdnimg.cn/release/edu/" />
+</head>
+<style>
+    *{padding:0;margin:0}
+    body{overflow: hidden;}
+</style>
+<body>
+<div style="width:300px;height:50px;position:absolute;left:50%; top:50%;margin:-25px 0 0 -150px; line-height: 50px; text-align: center" id="loading">
+    <img style="height: 50px;width: 50px;vertical-align: middle;" src="resource/images/loading1.gif"/>加载中，请稍等。。。
+</div>
+<script type="text/javascript" src="https://csdnimg.cn/release/edu/resource/js/libs/jquery-1.11.1.min.js?v=201808011417"></script>
+<script>
+    var edu_living_timer;
+    var iframe;
+    var initLive = function() {
+        var vhallIframe_W = $(window).width(),
+            vhallIframe_H = $(window).height();
+        if(document.getElementById("living")){
+            iframe = document.getElementById("living");
+        }else{
+            iframe = document.createElement("iframe");
+            iframe.src = 'https://cxlz.gensee.com/webcast/site/entry/join-2e5fe1443a9c4183a157762d5b327a3b?nickName=tb0700372&token=&k=fc60c6fa025567dd4ff88f4994697ac5&uid=1025747974';
+            iframe.setAttribute("frameborder", "0", 0);
+            iframe.setAttribute("scrolling", "no");
+            iframe.id = 'living';
+            document.getElementsByTagName('body')[0].appendChild(iframe);
+            haveForm();
+        }
+        iframe.width = vhallIframe_W;
+        iframe.height = vhallIframe_H;
+    };
+    window.onload = window.onresize = initLive;
+
+    function haveForm(){
+       var _iframe_body = document.getElementsByTagName("body");
+        if (typeof(_iframe_body) !== undefined) {
+                        var loading = document.getElementById('loading');
+            if (loading) {
+                loading.remove();
+            }
+        }
+    }
+</script>
+</body>
+</html>
